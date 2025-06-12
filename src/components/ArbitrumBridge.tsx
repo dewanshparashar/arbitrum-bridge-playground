@@ -28,7 +28,7 @@ const ArbitrumBridge: React.FC<ArbitrumBridgeProps> = ({
     }),
   });
 
-  const iframeUrl = `https://bridge.arbitrum.io/?${queryParams.toString()}`;
+  const iframeUrl = `https://bridge.arbitrum.io/?${queryParams.toString()}`; // iframe to render
 
   return (
     <div className="h-full flex items-center justify-center">
