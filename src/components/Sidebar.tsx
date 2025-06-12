@@ -19,12 +19,12 @@ const Sidebar: React.FC<SidebarProps> = ({
   toggleFeature,
 }) => {
   return (
-    <div className="relative inset-y-0 left-0 w-96 bg-gray-800 shadow-xl">
+    <div className="relative inset-y-0 left-0 w-96 bg-[#2C2C2C] border-r border-[#3C3C3C]">
       <div className="flex h-full flex-col overflow-y-auto">
-        <div className="px-4 py-6 sm:px-6">
+        <div className="px-4 py-5 sm:px-6">
           <div className="flex items-start justify-between">
-            <h2 className="text-xl font-semibold text-gray-200">
-              Bridge Configuration
+            <h2 className="text-[15px] font-medium text-[#E5E5E5]">
+              Arbitrum Bridge Playground
             </h2>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             toggleFeature={toggleFeature}
           />
         </div>
-        <div className="px-4 py-6 sm:px-6 border-t border-gray-700">
+        <div className="px-4 py-5 sm:px-6 border-t border-[#3C3C3C]">
           <CodeDisplay
             mode={selectedMode}
             bridgeMode={bridgeMode}

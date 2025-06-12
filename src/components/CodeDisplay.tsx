@@ -49,18 +49,18 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({
   };
 
   return (
-    <div className="w-full max-w-3xl bg-gray-800 rounded-lg p-4">
+    <div className="w-full bg-[#363636] rounded-[6px] p-3 text-xs">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-lg font-semibold text-gray-200">Embed Code</h3>
+        <h3 className="text-[13px] font-medium text-[#E5E5E5]">Embed Code</h3>
         <button
           onClick={copyToClipboard}
-          className="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-sm"
+          className="px-2.5 py-1.5 bg-[#0D99FF] hover:bg-[#0D99FF]/90 font-medium text-white rounded-[4px] transition-colors"
         >
-          Copy Code
+          Copy
         </button>
       </div>
-      <pre className="bg-gray-900 p-4 rounded overflow-x-auto">
-        <code className="text-gray-200 text-sm">{codeString}</code>
+      <pre className="bg-black/80 p-3 rounded-[4px] overflow-x-auto">
+        <code className="text-[#E5E5E5] font-mono">{codeString}</code>
       </pre>
     </div>
   );

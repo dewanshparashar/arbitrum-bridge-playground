@@ -26,39 +26,39 @@ const Controls: React.FC<ControlsProps> = ({
   toggleFeature,
 }) => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {/* Bridge Mode Selector */}
       <div>
         <RadioGroup value={bridgeMode} onChange={setBridgeMode}>
-          <RadioGroup.Label className="block text-sm font-medium text-gray-400 mb-2">
+          <RadioGroup.Label className="block text-[13px] font-medium text-[#E5E5E5] mb-2">
             Bridge Mode
           </RadioGroup.Label>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <RadioGroup.Option value="normal" className="flex-1">
               {({ checked }) => (
                 <div
-                  className={`flex flex-col items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${
+                  className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                     checked
-                      ? "border-blue-500 bg-blue-500/10 text-blue-400"
-                      : "border-gray-600 hover:border-gray-500 text-gray-400 hover:text-gray-300"
+                      ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
+                      : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                   }`}
                 >
-                  <WindowIcon className="w-6 h-6" />
-                  <span className="text-sm">Normal</span>
+                  <WindowIcon className="w-5 h-5" />
+                  <span className="text-[13px]">Normal</span>
                 </div>
               )}
             </RadioGroup.Option>
             <RadioGroup.Option value="widget" className="flex-1">
               {({ checked }) => (
                 <div
-                  className={`flex flex-col items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${
+                  className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                     checked
-                      ? "border-blue-500 bg-blue-500/10 text-blue-400"
-                      : "border-gray-600 hover:border-gray-500 text-gray-400 hover:text-gray-300"
+                      ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
+                      : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                   }`}
                 >
-                  <Square2StackIcon className="w-6 h-6" />
-                  <span className="text-sm">Widget</span>
+                  <Square2StackIcon className="w-5 h-5" />
+                  <span className="text-[13px]">Widget</span>
                 </div>
               )}
             </RadioGroup.Option>
@@ -70,35 +70,35 @@ const Controls: React.FC<ControlsProps> = ({
       {bridgeMode === "widget" && (
         <div>
           <RadioGroup value={selectedMode} onChange={setSelectedMode}>
-            <RadioGroup.Label className="block text-sm font-medium text-gray-400 mb-2">
+            <RadioGroup.Label className="block text-[13px] font-medium text-[#E5E5E5] mb-2">
               Layout Mode
             </RadioGroup.Label>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <RadioGroup.Option value="vertical" className="flex-1">
                 {({ checked }) => (
                   <div
-                    className={`flex flex-col items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${
+                    className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                       checked
-                        ? "border-blue-500 bg-blue-500/10 text-blue-400"
-                        : "border-gray-600 hover:border-gray-500 text-gray-400 hover:text-gray-300"
+                        ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
+                        : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                     }`}
                   >
-                    <ArrowsUpDownIcon className="w-6 h-6" />
-                    <span className="text-sm">Vertical</span>
+                    <ArrowsUpDownIcon className="w-5 h-5" />
+                    <span className="text-[13px]">Vertical</span>
                   </div>
                 )}
               </RadioGroup.Option>
               <RadioGroup.Option value="horizontal" className="flex-1">
                 {({ checked }) => (
                   <div
-                    className={`flex flex-col items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${
+                    className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                       checked
-                        ? "border-blue-500 bg-blue-500/10 text-blue-400"
-                        : "border-gray-600 hover:border-gray-500 text-gray-400 hover:text-gray-300"
+                        ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
+                        : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                     }`}
                   >
-                    <ArrowsRightLeftIcon className="w-6 h-6" />
-                    <span className="text-sm">Horizontal</span>
+                    <ArrowsRightLeftIcon className="w-5 h-5" />
+                    <span className="text-[13px]">Horizontal</span>
                   </div>
                 )}
               </RadioGroup.Option>
@@ -108,14 +108,18 @@ const Controls: React.FC<ControlsProps> = ({
       )}
 
       {/* Feature Toggles */}
-      <div className="space-y-4">
-        <h3 className="text-sm font-medium text-gray-400">Feature Flags</h3>
+      <div className="space-y-3">
+        <h3 className="text-[13px] font-medium text-[#E5E5E5]">
+          Feature Flags
+        </h3>
 
         {/* Batch Transfers Toggle */}
-        <div className="flex items-center justify-between p-3 bg-gray-700/50 rounded-lg">
+        <div className="flex items-center justify-between p-3 bg-[#363636] rounded-[6px]">
           <div>
-            <h4 className="text-gray-200 font-medium">Batch Transfers</h4>
-            <p className="text-sm text-gray-400">
+            <h4 className="text-[13px] font-medium text-[#E5E5E5]">
+              Batch Transfers
+            </h4>
+            <p className="text-[12px] text-[#A6A6A6]">
               Enable/disable batch transfer functionality
             </p>
           </div>
@@ -124,25 +128,27 @@ const Controls: React.FC<ControlsProps> = ({
             onChange={() => toggleFeature("batch-transfers")}
             className={`${
               !disabledFeatures.includes("batch-transfers")
-                ? "bg-green-500"
-                : "bg-red-500"
-            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+                ? "bg-[#0D99FF]"
+                : "bg-[#363636]"
+            } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C]`}
           >
             <span
               className={`${
                 !disabledFeatures.includes("batch-transfers")
-                  ? "translate-x-6"
+                  ? "translate-x-4"
                   : "translate-x-1"
-              } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+              } inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform`}
             />
           </Switch>
         </div>
 
         {/* Switch Networks Toggle */}
-        <div className="flex items-center justify-between p-3 bg-gray-700/50 rounded-lg">
+        <div className="flex items-center justify-between p-3 bg-[#363636] rounded-[6px]">
           <div>
-            <h4 className="text-gray-200 font-medium">Switch Networks</h4>
-            <p className="text-sm text-gray-400">
+            <h4 className="text-[13px] font-medium text-[#E5E5E5]">
+              Switch Networks
+            </h4>
+            <p className="text-[12px] text-[#A6A6A6]">
               Enable/disable network switching functionality
             </p>
           </div>
@@ -151,16 +157,16 @@ const Controls: React.FC<ControlsProps> = ({
             onChange={() => toggleFeature("network-selection")}
             className={`${
               !disabledFeatures.includes("network-selection")
-                ? "bg-green-500"
-                : "bg-red-500"
-            } relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+                ? "bg-[#0D99FF]"
+                : "bg-[#363636]"
+            } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C]`}
           >
             <span
               className={`${
                 !disabledFeatures.includes("network-selection")
-                  ? "translate-x-6"
+                  ? "translate-x-4"
                   : "translate-x-1"
-              } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+              } inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform`}
             />
           </Switch>
         </div>

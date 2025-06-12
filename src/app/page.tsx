@@ -30,7 +30,7 @@ export default function Home() {
         toggleFeature={toggleFeature}
       />
 
-      <div className="flex-1 h-full flex items-center justify-center bg-gray-900">
+      <div className="flex-1 h-full flex items-center justify-center bg-[#333333]">
         <ArbitrumBridge
           mode={selectedMode}
           bridgeMode={bridgeMode}
