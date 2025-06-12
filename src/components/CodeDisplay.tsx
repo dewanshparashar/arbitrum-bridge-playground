@@ -48,6 +48,11 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({
     navigator.clipboard.writeText(codeString);
   };
 
+  // Only render in widget mode
+  if (bridgeMode !== "widget") {
+    return null;
+  }
+
   return (
     <div className="w-full bg-[#363636] rounded-[6px] p-3 text-xs">
       <div className="flex justify-between items-center mb-2">
