@@ -21,92 +21,97 @@ const Controls: React.FC = () => {
 
   return (
     <div className="space-y-4 lg:space-y-5">
-      {/* Bridge Mode Selector */}
-      <div>
-        <RadioGroup value={bridgeMode} onChange={setBridgeMode}>
-          <RadioGroup.Label className="block text-[13px] font-medium text-[#E5E5E5] mb-2">
-            Bridge Mode
-          </RadioGroup.Label>
-          <p className="text-[11px] text-[#A6A6A6] mb-3">
-            {bridgeMode === "normal"
-              ? "Normal: Full interface with all features enabled"
-              : "Widget: Customizable interface embeddable anywhere"}
-          </p>
-          <div className="flex gap-2 lg:gap-3">
-            <RadioGroup.Option value="normal" className="flex-1">
-              {({ checked }) => (
-                <div
-                  className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
-                    checked
-                      ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
-                      : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
-                  }`}
-                >
-                  <WindowIcon className="w-4 h-4 lg:w-5 lg:h-5" />
-                  <span className="text-[12px] lg:text-[13px]">Normal</span>
-                </div>
-              )}
-            </RadioGroup.Option>
-            <RadioGroup.Option value="widget" className="flex-1">
-              {({ checked }) => (
-                <div
-                  className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
-                    checked
-                      ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
-                      : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
-                  }`}
-                >
-                  <Square2StackIcon className="w-4 h-4 lg:w-5 lg:h-5" />
-                  <span className="text-[12px] lg:text-[13px]">Widget</span>
-                </div>
-              )}
-            </RadioGroup.Option>
-          </div>
-        </RadioGroup>
-      </div>
-
-      {/* Layout Mode Selector - Only show for Widget mode */}
-      {bridgeMode === "widget" && (
+      {/* Bridge Mode and Layout Mode - Side by side on small screens */}
+      <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-5">
+        {/* Bridge Mode Selector */}
         <div>
-          <RadioGroup value={layoutMode} onChange={setLayoutMode}>
+          <RadioGroup value={bridgeMode} onChange={setBridgeMode}>
             <RadioGroup.Label className="block text-[13px] font-medium text-[#E5E5E5] mb-2">
-              Layout Mode
+              Bridge Mode
             </RadioGroup.Label>
-            <div className="flex gap-2 lg:gap-3">
-              <RadioGroup.Option value="vertical" className="flex-1">
+            <p className="text-[10px] lg:text-[11px] text-[#A6A6A6] mb-3 hidden lg:block">
+              {bridgeMode === "normal"
+                ? "Normal: Full interface with all features enabled"
+                : "Widget: Customizable interface embeddable anywhere"}
+            </p>
+            <div className="flex gap-1 lg:gap-3">
+              <RadioGroup.Option value="normal" className="flex-1">
                 {({ checked }) => (
                   <div
-                    className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                    className={`flex flex-col items-center gap-1 lg:gap-2 px-1 lg:px-3 py-1.5 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                       checked
                         ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
                         : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                     }`}
                   >
-                    <ArrowsUpDownIcon className="w-4 h-4 lg:w-5 lg:h-5" />
-                    <span className="text-[12px] lg:text-[13px]">Vertical</span>
+                    <WindowIcon className="w-3 h-3 lg:w-5 lg:h-5" />
+                    <span className="text-[10px] lg:text-[13px]">Normal</span>
                   </div>
                 )}
               </RadioGroup.Option>
-              <RadioGroup.Option value="horizontal" className="flex-1">
+              <RadioGroup.Option value="widget" className="flex-1">
                 {({ checked }) => (
                   <div
-                    className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                    className={`flex flex-col items-center gap-1 lg:gap-2 px-1 lg:px-3 py-1.5 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                       checked
                         ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
                         : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                     }`}
                   >
-                    <ArrowsRightLeftIcon className="w-4 h-4 lg:w-5 lg:h-5" />
-                    <span className="text-[12px] lg:text-[13px]">
-                      Horizontal
-                    </span>
+                    <Square2StackIcon className="w-3 h-3 lg:w-5 lg:h-5" />
+                    <span className="text-[10px] lg:text-[13px]">Widget</span>
                   </div>
                 )}
               </RadioGroup.Option>
             </div>
           </RadioGroup>
         </div>
-      )}
+
+        {/* Layout Mode Selector - Only show for Widget mode */}
+        {bridgeMode === "widget" && (
+          <div>
+            <RadioGroup value={layoutMode} onChange={setLayoutMode}>
+              <RadioGroup.Label className="block text-[13px] font-medium text-[#E5E5E5] mb-2">
+                Layout Mode
+              </RadioGroup.Label>
+              <div className="flex gap-1 lg:gap-3">
+                <RadioGroup.Option value="vertical" className="flex-1">
+                  {({ checked }) => (
+                    <div
+                      className={`flex flex-col items-center gap-1 lg:gap-2 px-1 lg:px-3 py-1.5 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                        checked
+                          ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
+                          : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
+                      }`}
+                    >
+                      <ArrowsUpDownIcon className="w-3 h-3 lg:w-5 lg:h-5" />
+                      <span className="text-[10px] lg:text-[13px]">
+                        Vertical
+                      </span>
+                    </div>
+                  )}
+                </RadioGroup.Option>
+                <RadioGroup.Option value="horizontal" className="flex-1">
+                  {({ checked }) => (
+                    <div
+                      className={`flex flex-col items-center gap-1 lg:gap-2 px-1 lg:px-3 py-1.5 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                        checked
+                          ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
+                          : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
+                      }`}
+                    >
+                      <ArrowsRightLeftIcon className="w-3 h-3 lg:w-5 lg:h-5" />
+                      <span className="text-[10px] lg:text-[13px]">
+                        Horizontal
+                      </span>
+                    </div>
+                  )}
+                </RadioGroup.Option>
+              </div>
+            </RadioGroup>
+          </div>
+        )}
+      </div>
 
       {/* Feature Toggles - Only show for Widget mode */}
       {bridgeMode === "widget" && (

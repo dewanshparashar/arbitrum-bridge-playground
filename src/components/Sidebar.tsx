@@ -15,7 +15,7 @@ const Sidebar: React.FC = () => {
         <div className="relative flex-1 px-4 sm:px-6">
           <Controls />
         </div>
-        <div className="px-4 py-5 sm:px-6 border-t border-[#3C3C3C]">
+        <div className="px-4 py-5 sm:px-6">
           <CodeDisplay />
         </div>
       </div>
