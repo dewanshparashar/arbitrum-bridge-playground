@@ -120,10 +120,8 @@ const Controls: React.FC = () => {
                 Network Selection
               </h4>
               <p className="text-[12px] text-[#A6A6A6] max-w-[280px]">
-                Users will be able to select any source and destination network
-                they want to bridge assets between. We recommend disabling this
-                for embed mode to prevent users from selecting networks that are
-                not in the interest of the host.
+                We recommend disabling this for embed mode to prevent users from
+                selecting networks that are not in the interest of the host.
               </p>
             </div>
             <Switch
@@ -152,9 +150,8 @@ const Controls: React.FC = () => {
                 Batch Transfers
               </h4>
               <p className="text-[12px] text-[#A6A6A6] max-w-[280px]">
-                Users will be able to batch ETH/native tokens alongside bridged
-                tokens. Limited to only a few chains. We recommend this to be
-                disabled for embed mode to keep things simple.
+                We recommend this to be disabled for embed mode due to limited
+                support and to keep things simple.
               </p>
             </div>
             <Switch

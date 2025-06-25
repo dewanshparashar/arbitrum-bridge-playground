@@ -21,7 +21,7 @@ const ArbitrumBridge: React.FC = () => {
     if (isLoading) {
       const timeout = setTimeout(() => {
         setLoading(false);
-      }, 800);
+      }, 1500);
 
       return () => clearTimeout(timeout);
     }
