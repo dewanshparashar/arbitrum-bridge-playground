@@ -7,24 +7,18 @@ import {
   WindowIcon,
   Square2StackIcon,
 } from "@heroicons/react/24/outline";
+import { useBridgeStore } from "@/store/bridgeStore";
 
-interface ControlsProps {
-  selectedMode: "vertical" | "horizontal";
-  setSelectedMode: (mode: "vertical" | "horizontal") => void;
-  bridgeMode: "normal" | "widget";
-  setBridgeMode: (mode: "normal" | "widget") => void;
-  disabledFeatures: string[];
-  toggleFeature: (feature: string) => void;
-}
+const Controls: React.FC = () => {
+  const {
+    bridgeMode,
+    layoutMode,
+    disabledFeatures,
+    setBridgeMode,
+    setLayoutMode,
+    toggleFeature,
+  } = useBridgeStore();
 
-const Controls: React.FC<ControlsProps> = ({
-  selectedMode,
-  setSelectedMode,
-  bridgeMode,
-  setBridgeMode,
-  disabledFeatures,
-  toggleFeature,
-}) => {
   return (
     <div className="space-y-5">
       {/* Bridge Mode Selector */}
@@ -74,7 +68,7 @@ const Controls: React.FC<ControlsProps> = ({
       {/* Layout Mode Selector - Only show for Widget mode */}
       {bridgeMode === "widget" && (
         <div>
-          <RadioGroup value={selectedMode} onChange={setSelectedMode}>
+          <RadioGroup value={layoutMode} onChange={setLayoutMode}>
             <RadioGroup.Label className="block text-[13px] font-medium text-[#E5E5E5] mb-2">
               Layout Mode
             </RadioGroup.Label>

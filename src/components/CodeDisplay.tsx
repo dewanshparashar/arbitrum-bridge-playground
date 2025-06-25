@@ -1,25 +1,18 @@
 import React from "react";
+import { useBridgeStore } from "@/store/bridgeStore";
 
-interface CodeDisplayProps {
-  mode: "vertical" | "horizontal";
-  bridgeMode: "normal" | "widget";
-  disabledFeatures: string[];
-}
+const CodeDisplay: React.FC = () => {
+  const { bridgeMode, layoutMode, disabledFeatures } = useBridgeStore();
 
-const CodeDisplay: React.FC<CodeDisplayProps> = ({
-  mode,
-  bridgeMode,
-  disabledFeatures,
-}) => {
   const dimensions = {
     vertical: { width: 367, height: 740 },
     horizontal: { width: 910, height: 430 },
   };
 
-  const { width, height } = dimensions[mode];
+  const { width, height } = dimensions[layoutMode];
 
   const queryParams = new URLSearchParams({
-    ...(bridgeMode === "widget" && { embedMode: "1" }),
+    ...(bridgeMode === "widget" && { mode: "embed" }),
     ...(disabledFeatures.length > 0 && {
       disabledFeatures: disabledFeatures.join(","),
     }),

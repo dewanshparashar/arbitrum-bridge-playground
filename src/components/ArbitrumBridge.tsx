@@ -1,16 +1,9 @@
 import React from "react";
+import { useBridgeStore } from "@/store/bridgeStore";
 
-interface ArbitrumBridgeProps {
-  mode: "vertical" | "horizontal";
-  bridgeMode: "normal" | "widget";
-  disabledFeatures?: string[];
-}
+const ArbitrumBridge: React.FC = () => {
+  const { bridgeMode, layoutMode, disabledFeatures } = useBridgeStore();
 
-const ArbitrumBridge: React.FC<ArbitrumBridgeProps> = ({
-  mode,
-  bridgeMode,
-  disabledFeatures = [],
-}) => {
   const dimensions = {
     vertical: { width: 367, height: 740 },
     horizontal: { width: 910, height: 430 },
@@ -18,11 +11,11 @@ const ArbitrumBridge: React.FC<ArbitrumBridgeProps> = ({
   };
 
   const { width, height } =
-    bridgeMode === "normal" ? dimensions.normal : dimensions[mode];
+    bridgeMode === "normal" ? dimensions.normal : dimensions[layoutMode];
 
   const queryParams = new URLSearchParams({
     amount: "1",
-    ...(bridgeMode === "widget" && { embedMode: "1" }),
+    ...(bridgeMode === "widget" && { mode: "embed" }),
     ...(disabledFeatures.length > 0 && {
       disabledFeatures: disabledFeatures.join(","),
     }),
