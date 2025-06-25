@@ -3,7 +3,7 @@ import { useBridgeStore } from "@/store/bridgeStore";
 import { constructIframeCode } from "@/utils/iframeUtils";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
-const CodeDisplay: React.FC = () => {
+const IntegrationGuide: React.FC = () => {
   const { bridgeMode, layoutMode, disabledFeatures } = useBridgeStore();
   const [copied, setCopied] = useState(false);
 
@@ -71,4 +71,4 @@ const CodeDisplay: React.FC = () => {
   );
 };
 
-export default CodeDisplay;
+export default IntegrationGuide;
