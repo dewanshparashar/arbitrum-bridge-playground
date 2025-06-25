@@ -20,7 +20,7 @@ const Controls: React.FC = () => {
   } = useBridgeStore();
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-4 lg:space-y-5">
       {/* Bridge Mode Selector */}
       <div>
         <RadioGroup value={bridgeMode} onChange={setBridgeMode}>
@@ -32,32 +32,32 @@ const Controls: React.FC = () => {
               ? "Normal: Full interface with all features enabled"
               : "Widget: Customizable interface embeddable anywhere"}
           </p>
-          <div className="flex gap-3">
+          <div className="flex gap-2 lg:gap-3">
             <RadioGroup.Option value="normal" className="flex-1">
               {({ checked }) => (
                 <div
-                  className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                  className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                     checked
                       ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
                       : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                   }`}
                 >
-                  <WindowIcon className="w-5 h-5" />
-                  <span className="text-[13px]">Normal</span>
+                  <WindowIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                  <span className="text-[12px] lg:text-[13px]">Normal</span>
                 </div>
               )}
             </RadioGroup.Option>
             <RadioGroup.Option value="widget" className="flex-1">
               {({ checked }) => (
                 <div
-                  className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                  className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                     checked
                       ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
                       : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                   }`}
                 >
-                  <Square2StackIcon className="w-5 h-5" />
-                  <span className="text-[13px]">Widget</span>
+                  <Square2StackIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                  <span className="text-[12px] lg:text-[13px]">Widget</span>
                 </div>
               )}
             </RadioGroup.Option>
@@ -72,32 +72,34 @@ const Controls: React.FC = () => {
             <RadioGroup.Label className="block text-[13px] font-medium text-[#E5E5E5] mb-2">
               Layout Mode
             </RadioGroup.Label>
-            <div className="flex gap-3">
+            <div className="flex gap-2 lg:gap-3">
               <RadioGroup.Option value="vertical" className="flex-1">
                 {({ checked }) => (
                   <div
-                    className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                    className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                       checked
                         ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
                         : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                     }`}
                   >
-                    <ArrowsUpDownIcon className="w-5 h-5" />
-                    <span className="text-[13px]">Vertical</span>
+                    <ArrowsUpDownIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    <span className="text-[12px] lg:text-[13px]">Vertical</span>
                   </div>
                 )}
               </RadioGroup.Option>
               <RadioGroup.Option value="horizontal" className="flex-1">
                 {({ checked }) => (
                   <div
-                    className={`flex flex-col items-center gap-2 px-3 py-2.5 rounded-[6px] border transition-all cursor-pointer ${
+                    className={`flex flex-col items-center gap-1.5 lg:gap-2 px-2 lg:px-3 py-2 lg:py-2.5 rounded-[6px] border transition-all cursor-pointer ${
                       checked
                         ? "border-[#0D99FF] bg-[#0D99FF]/10 text-[#0D99FF]"
                         : "border-[#3C3C3C] hover:border-[#4C4C4C] text-[#E5E5E5] hover:text-[#FFFFFF]"
                     }`}
                   >
-                    <ArrowsRightLeftIcon className="w-5 h-5" />
-                    <span className="text-[13px]">Horizontal</span>
+                    <ArrowsRightLeftIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    <span className="text-[12px] lg:text-[13px]">
+                      Horizontal
+                    </span>
                   </div>
                 )}
               </RadioGroup.Option>
@@ -115,12 +117,12 @@ const Controls: React.FC = () => {
 
           {/* Switch Networks Toggle */}
           <div className="flex items-center justify-between p-3 bg-[#363636] rounded-[6px]">
-            <div>
+            <div className="flex-1 mr-3">
               <h4 className="text-[13px] font-medium text-[#E5E5E5]">
                 Network Selection
               </h4>
               <p className="text-[12px] text-[#A6A6A6] max-w-[280px]">
-                We recommend disabling this for embed mode to prevent users from
+                We recommend disabling this in embed-mode to prevent users from
                 selecting networks that are not in the interest of the host.
               </p>
             </div>
@@ -131,7 +133,7 @@ const Controls: React.FC = () => {
                 !disabledFeatures.includes("network-selection")
                   ? "bg-[#0D99FF]"
                   : "bg-[#2A2D2E]"
-              } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C]`}
+              } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C] flex-shrink-0`}
             >
               <span
                 className={`${
@@ -145,13 +147,13 @@ const Controls: React.FC = () => {
 
           {/* Batch Transfers Toggle */}
           <div className="flex items-center justify-between p-3 bg-[#363636] rounded-[6px]">
-            <div>
+            <div className="flex-1 mr-3">
               <h4 className="text-[13px] font-medium text-[#E5E5E5]">
                 Batch Transfers
               </h4>
               <p className="text-[12px] text-[#A6A6A6] max-w-[280px]">
-                We recommend this to be disabled for embed mode due to limited
-                support and to keep things simple.
+                We recommend disabling this in embed-mode due to limited support
+                and to keep things simple.
               </p>
             </div>
             <Switch
@@ -161,7 +163,7 @@ const Controls: React.FC = () => {
                 !disabledFeatures.includes("batch-transfers")
                   ? "bg-[#0D99FF]"
                   : "bg-[#2A2D2E]"
-              } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C]`}
+              } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C] flex-shrink-0`}
             >
               <span
                 className={`${

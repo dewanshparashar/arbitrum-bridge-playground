@@ -42,7 +42,7 @@ const CodeDisplay: React.FC = () => {
         <button
           onClick={copyToClipboard}
           disabled={copied}
-          className={`px-2.5 py-1.5 font-medium rounded-[4px] transition-all duration-200 flex items-center gap-1.5 ${
+          className={`px-2 lg:px-2.5 py-1.5 font-medium rounded-[4px] transition-all duration-200 flex items-center gap-1.5 text-[12px] lg:text-sm ${
             copied
               ? "bg-green-600 text-white cursor-default"
               : "bg-[#0D99FF] hover:bg-[#0D99FF]/90 text-white hover:scale-105"
@@ -50,7 +50,7 @@ const CodeDisplay: React.FC = () => {
         >
           {copied ? (
             <>
-              <CheckIcon className="w-4 h-4" />
+              <CheckIcon className="w-3 h-3 lg:w-4 lg:h-4" />
               <span>Copied!</span>
             </>
           ) : (
@@ -58,12 +58,14 @@ const CodeDisplay: React.FC = () => {
           )}
         </button>
       </div>
-      <pre className="bg-black/80 p-3 rounded-[4px] overflow-x-auto">
-        <p className="text-[11px] text-[#A6A6A6] font-mono mb-2">
+      <pre className="bg-black/80 p-2 lg:p-3 rounded-[4px] overflow-x-auto">
+        <p className="text-[10px] lg:text-[11px] text-[#A6A6A6] font-mono mb-2">
           Paste this code into your application
         </p>
 
-        <code className="text-[#E5E5E5] font-mono">{iframeData.htmlCode}</code>
+        <code className="text-[10px] lg:text-[11px] text-[#E5E5E5] font-mono">
+          {iframeData.htmlCode}
+        </code>
       </pre>
     </div>
   );

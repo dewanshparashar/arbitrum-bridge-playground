@@ -3,8 +3,8 @@ import CodeDisplay from "./CodeDisplay";
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="relative inset-y-0 left-0 w-96 bg-[#2C2C2C] border-r border-[#3C3C3C]">
-      <div className="flex h-full flex-col overflow-y-auto">
+    <div className="w-full lg:w-96 bg-[#2C2C2C] border-b lg:border-b-0 lg:border-r border-[#3C3C3C]">
+      <div className="flex flex-col overflow-y-auto">
         <div className="px-4 py-5 sm:px-6">
           <div className="flex items-start justify-between">
             <h2 className="text-[15px] font-medium text-[#E5E5E5]">

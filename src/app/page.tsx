@@ -5,9 +5,9 @@ import Sidebar from "@/components/Sidebar";
 
 export default function Home() {
   return (
-    <main className="h-screen flex">
+    <main className="min-h-screen flex flex-col lg:flex-row">
       <Sidebar />
-      <div className="flex-1 h-full flex items-center justify-center bg-[#333333]">
+      <div className="flex-1 min-h-[50vh] lg:h-screen flex items-center justify-center bg-[#333333] p-4 lg:p-0">
         <ArbitrumBridge />
       </div>
     </main>
