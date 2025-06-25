@@ -20,7 +20,7 @@ const Controls: React.FC = () => {
   } = useBridgeStore();
 
   return (
-    <div className="space-y-4 lg:space-y-5">
+    <div className="flex flex-col gap-4">
       {/* Bridge Mode and Layout Mode - Side by side on small screens */}
       <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-5">
         {/* Bridge Mode Selector */}
@@ -30,9 +30,21 @@ const Controls: React.FC = () => {
               Bridge Mode
             </RadioGroup.Label>
             <p className="text-[10px] lg:text-[11px] text-[#A6A6A6] mb-3 hidden lg:block">
-              {bridgeMode === "normal"
-                ? "Normal: Full interface with all features enabled"
-                : "Widget: Customizable interface embeddable anywhere"}
+              {bridgeMode === "normal" ? (
+                <>Normal: Full interface with all features enabled</>
+              ) : (
+                <>
+                  Widget: Customizable interface embeddable anywhere.{" "}
+                  <a
+                    href="https://arbitrum.notion.site/External-Arbitrum-Embedded-Bridge-20901a3f59f8809ca4ffeb1405b845d8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0D99FF] hover:text-[#0D99FF]/80 underline whitespace-nowrap"
+                  >
+                    Learn More
+                  </a>
+                </>
+              )}
             </p>
             <div className="flex gap-1 lg:gap-3">
               <RadioGroup.Option value="normal" className="flex-1">
@@ -115,7 +127,7 @@ const Controls: React.FC = () => {
 
       {/* Feature Toggles - Only show for Widget mode */}
       {bridgeMode === "widget" && (
-        <div className="space-y-3">
+        <div className="flex flex-col gap-2">
           <h3 className="text-[13px] font-medium text-[#E5E5E5]">
             Feature Flags
           </h3>
