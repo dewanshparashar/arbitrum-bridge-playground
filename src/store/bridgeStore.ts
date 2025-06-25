@@ -21,7 +21,7 @@ interface BridgeState {
 const initialState = {
   bridgeMode: "widget" as BridgeMode,
   layoutMode: "vertical" as LayoutMode,
-  disabledFeatures: [] as string[],
+  disabledFeatures: ["network-selection", "batch-transfers"] as string[],
   isLoading: false,
 };
 

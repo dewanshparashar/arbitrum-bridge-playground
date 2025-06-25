@@ -35,7 +35,10 @@ const CodeDisplay: React.FC = () => {
   return (
     <div className="w-full bg-[#363636] rounded-[6px] p-3 text-xs">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-[13px] font-medium text-[#E5E5E5]">Embed Code</h3>
+        <h3 className="text-[13px] font-medium text-[#E5E5E5]">
+          Integration Guide
+        </h3>
+
         <button
           onClick={copyToClipboard}
           disabled={copied}
@@ -56,6 +59,10 @@ const CodeDisplay: React.FC = () => {
         </button>
       </div>
       <pre className="bg-black/80 p-3 rounded-[4px] overflow-x-auto">
+        <p className="text-[11px] text-[#A6A6A6] font-mono mb-2">
+          Paste this code into your application
+        </p>
+
         <code className="text-[#E5E5E5] font-mono">{iframeData.htmlCode}</code>
       </pre>
     </div>
