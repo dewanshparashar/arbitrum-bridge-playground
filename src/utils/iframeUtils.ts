@@ -45,21 +45,21 @@ export const constructIframeCode = (config: IframeConfig): IframeCode => {
 
   const url = `https://bridge.arbitrum.io/?${queryParams.toString()}`;
 
-  // Generate HTML code
+  // Generate HTML code with minimal necessary permissions
   const htmlCode =
     bridgeMode === "normal"
       ? `<iframe
   src="${url}"
   width="100%"
   height="100%"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="clipboard-write"
   allowFullScreen
 />`
       : `<iframe
   src="${url}"
   width="${width}"
   height="${height}"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="clipboard-write"
   allowFullScreen
 />`;
 

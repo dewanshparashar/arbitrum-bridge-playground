@@ -8,11 +8,13 @@ interface BridgeState {
   bridgeMode: BridgeMode;
   layoutMode: LayoutMode;
   disabledFeatures: string[];
+  isLoading: boolean;
 
   // Actions
   setBridgeMode: (mode: BridgeMode) => void;
   setLayoutMode: (mode: LayoutMode) => void;
   toggleFeature: (feature: string) => void;
+  setLoading: (loading: boolean) => void;
   resetState: () => void;
 }
 
@@ -20,17 +22,18 @@ const initialState = {
   bridgeMode: "widget" as BridgeMode,
   layoutMode: "vertical" as LayoutMode,
   disabledFeatures: [] as string[],
+  isLoading: false,
 };
 
 export const useBridgeStore = create<BridgeState>((set) => ({
   ...initialState,
 
   setBridgeMode: (mode: BridgeMode) => {
-    set({ bridgeMode: mode });
+    set({ bridgeMode: mode, isLoading: true });
   },
 
   setLayoutMode: (mode: LayoutMode) => {
-    set({ layoutMode: mode });
+    set({ layoutMode: mode, isLoading: true });
   },
 
   toggleFeature: (feature: string) => {
@@ -38,7 +41,12 @@ export const useBridgeStore = create<BridgeState>((set) => ({
       disabledFeatures: state.disabledFeatures.includes(feature)
         ? state.disabledFeatures.filter((f) => f !== feature)
         : [...state.disabledFeatures, feature],
+      isLoading: true,
     }));
+  },
+
+  setLoading: (loading: boolean) => {
+    set({ isLoading: loading });
   },
 
   resetState: () => {

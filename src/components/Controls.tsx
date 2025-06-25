@@ -30,7 +30,7 @@ const Controls: React.FC = () => {
           <p className="text-[11px] text-[#A6A6A6] mb-3">
             {bridgeMode === "normal"
               ? "Normal: Full interface with all features enabled"
-              : "Widget: Customizable interface embeddable in any app"}
+              : "Widget: Customizable interface embeddable anywhere"}
           </p>
           <div className="flex gap-3">
             <RadioGroup.Option value="normal" className="flex-1">
@@ -113,37 +113,6 @@ const Controls: React.FC = () => {
             Feature Flags
           </h3>
 
-          {/* Batch Transfers Toggle */}
-          <div className="flex items-center justify-between p-3 bg-[#363636] rounded-[6px]">
-            <div>
-              <h4 className="text-[13px] font-medium text-[#E5E5E5]">
-                Batch Transfers
-              </h4>
-              <p className="text-[12px] text-[#A6A6A6] max-w-[280px]">
-                Users will be able to batch ETH/native tokens alongside bridged
-                tokens. Limited to only a few chains. We recommend this to be
-                disabled for embed mode to keep things simple.
-              </p>
-            </div>
-            <Switch
-              checked={!disabledFeatures.includes("batch-transfers")}
-              onChange={() => toggleFeature("batch-transfers")}
-              className={`${
-                !disabledFeatures.includes("batch-transfers")
-                  ? "bg-[#0D99FF]"
-                  : "bg-[#2A2D2E]"
-              } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C]`}
-            >
-              <span
-                className={`${
-                  !disabledFeatures.includes("batch-transfers")
-                    ? "translate-x-4"
-                    : "translate-x-1"
-                } inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform`}
-              />
-            </Switch>
-          </div>
-
           {/* Switch Networks Toggle */}
           <div className="flex items-center justify-between p-3 bg-[#363636] rounded-[6px]">
             <div>
@@ -169,6 +138,37 @@ const Controls: React.FC = () => {
               <span
                 className={`${
                   !disabledFeatures.includes("network-selection")
+                    ? "translate-x-4"
+                    : "translate-x-1"
+                } inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform`}
+              />
+            </Switch>
+          </div>
+
+          {/* Batch Transfers Toggle */}
+          <div className="flex items-center justify-between p-3 bg-[#363636] rounded-[6px]">
+            <div>
+              <h4 className="text-[13px] font-medium text-[#E5E5E5]">
+                Batch Transfers
+              </h4>
+              <p className="text-[12px] text-[#A6A6A6] max-w-[280px]">
+                Users will be able to batch ETH/native tokens alongside bridged
+                tokens. Limited to only a few chains. We recommend this to be
+                disabled for embed mode to keep things simple.
+              </p>
+            </div>
+            <Switch
+              checked={!disabledFeatures.includes("batch-transfers")}
+              onChange={() => toggleFeature("batch-transfers")}
+              className={`${
+                !disabledFeatures.includes("batch-transfers")
+                  ? "bg-[#0D99FF]"
+                  : "bg-[#2A2D2E]"
+              } relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#0D99FF] focus:ring-offset-2 focus:ring-offset-[#2C2C2C]`}
+            >
+              <span
+                className={`${
+                  !disabledFeatures.includes("batch-transfers")
                     ? "translate-x-4"
                     : "translate-x-1"
                 } inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform`}
