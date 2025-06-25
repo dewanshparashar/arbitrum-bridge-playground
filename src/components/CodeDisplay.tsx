@@ -1,44 +1,18 @@
 import React from "react";
 import { useBridgeStore } from "@/store/bridgeStore";
+import { constructIframeCode } from "@/utils/iframeUtils";
 
 const CodeDisplay: React.FC = () => {
   const { bridgeMode, layoutMode, disabledFeatures } = useBridgeStore();
 
-  const dimensions = {
-    vertical: { width: 367, height: 740 },
-    horizontal: { width: 910, height: 430 },
-  };
-
-  const { width, height } = dimensions[layoutMode];
-
-  const queryParams = new URLSearchParams({
-    ...(bridgeMode === "widget" && { mode: "embed" }),
-    ...(disabledFeatures.length > 0 && {
-      disabledFeatures: disabledFeatures.join(","),
-    }),
+  const iframeData = constructIframeCode({
+    bridgeMode,
+    layoutMode,
+    disabledFeatures,
   });
 
-  const iframeUrl = `https://bridge.arbitrum.io/?${queryParams.toString()}`;
-
-  const codeString =
-    bridgeMode === "normal"
-      ? `<iframe
-  src="${iframeUrl}"
-  width="100%"
-  height="100%"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-/>`
-      : `<iframe
-  src="${iframeUrl}"
-  width="${width}"
-  height="${height}"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-/>`;
-
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(codeString);
+    navigator.clipboard.writeText(iframeData.htmlCode);
   };
 
   // Only render in widget mode
@@ -58,7 +32,7 @@ const CodeDisplay: React.FC = () => {
         </button>
       </div>
       <pre className="bg-black/80 p-3 rounded-[4px] overflow-x-auto">
-        <code className="text-[#E5E5E5] font-mono">{codeString}</code>
+        <code className="text-[#E5E5E5] font-mono">{iframeData.htmlCode}</code>
       </pre>
     </div>
   );
